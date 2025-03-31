@@ -10,7 +10,7 @@ export async function signUp(params: SignUpParams){
     const {uid, name,email} = params;
 
     try{
-        const userRecord = await db.collection('users').doc('uid').get();
+        const userRecord = await db.collection('users').doc(uid).get();
 
 
 
@@ -114,6 +114,5 @@ export async function getCurrentUser(): Promise<User | null > {
 
 export async function isAuthenticated() {
     const user  = await getCurrentUser();
-
     return !!user;
 }
